@@ -1,4 +1,6 @@
+// #include <iostream>
 #include <vector>
+// #include <ctime>
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
 
@@ -24,3 +26,11 @@ PYBIND11_MODULE(sieve, m) {
     m.def("eratosthenes_sieve", &EratosthenesSieve, "Sieve of Eratosthenes");
 }
 
+
+// int main(){
+//     clock_t start = clock();
+//     EratosthenesSieve(100000000);
+//     clock_t end = clock();
+//     std::cout << double(end - start) / CLOCKS_PER_SEC;
+//     return 0;
+// }

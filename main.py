@@ -1,4 +1,4 @@
-import sieve
+import pySieve
 
-data=sieve.eratosthenes_sieve(1214)
+data=pySieve.eratosthenes_sieve(1214)
 print(data)
