@@ -5,17 +5,17 @@
 #include <pybind11/stl.h>
 
 std::vector<unsigned long long> EratosthenesSieve(long long n){
-    std::vector<bool> isPrime(n + 1, true);
+    std::vector<int> isPrime(n + 1, 1);
     for (long long i = 2; i * i <= n; ++i){
-        if (isPrime[i]){
+        if (isPrime[i] == 1){
             for(long long j = i * i; j <= n; j+=i){
-                isPrime[j]=false;
+                isPrime[j]=0;
             }
         }
     }
     std::vector<unsigned long long> primes;
-    for (long long i = 1; i <= n; ++i){
-        if (isPrime[i]){
+    for (long long i = 2; i <= n; ++i){
+        if (isPrime[i] == 1){
             primes.push_back(i);
         }
     }
