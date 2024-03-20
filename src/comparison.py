@@ -5,7 +5,7 @@ import time
 import matplotlib
 import matplotlib.pyplot as plt
 from sieve import eratosthenes_sieve
-from pySieve import eratosthenes_sieve_py
+from src.pySieve import eratosthenes_sieve_py
 
 matplotlib.use('Qt5Agg')
 
