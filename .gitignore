@@ -43,3 +43,4 @@ CMakeFiles/
 venv/
 .cache/
 __pycache__/
+result_image.jpg
