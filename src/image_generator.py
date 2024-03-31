@@ -1,13 +1,14 @@
 """
 Texture generation
 """
-import sieve
 import textwrap
 from PIL import Image, ImageDraw, ImageFont
+import sieve
 TEXTURE_PATH = "assets/backrooms.png"
 FONT_PATH = "assets/caskadiya.ttf"
 FONT_SIZE = 60
 SIEVE_NUM = 10000
+SAVE_PATH = "result_image.jpg"
 
 texture_image= Image.open(TEXTURE_PATH)
 
@@ -17,12 +18,12 @@ font = ImageFont.truetype(FONT_PATH,FONT_SIZE)
 draw = ImageDraw.Draw(numbers_layout)
 
 primes = sieve.eratosthenes_sieve(SIEVE_NUM)
-primes_txt=' '.join([str(num) for num in primes])
-wrapped=textwrap.fill(primes_txt,width=28)
+primes_txt = ' '.join([str(num) for num in primes])
+wrapped = textwrap.fill(primes_txt,width=28)
 
 draw.text((0,0),wrapped,fill=(255,255,255,200),font=font)
 
 combined_img = Image.alpha_composite(texture_image.convert('RGBA'), numbers_layout)
 result_img = combined_img.convert('RGB')
-result_img.save('result_image.jpg')
+result_img.save(SAVE_PATH)
 result_img.show()
